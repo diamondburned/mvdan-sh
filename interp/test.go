@@ -82,13 +82,13 @@ func (r *Runner) binTest(ctx context.Context, op syntax.BinTestOperator, x, y st
 			return false
 		}
 		return info1.ModTime().Before(info2.ModTime())
-	case syntax.TsDevIno:
-		info1, err1 := r.stat(ctx, x)
-		info2, err2 := r.stat(ctx, y)
-		if err1 != nil || err2 != nil {
-			return false
-		}
-		return os.SameFile(info1, info2)
+	// case syntax.TsDevIno:
+	// 	info1, err1 := r.stat(ctx, x)
+	// 	info2, err2 := r.stat(ctx, y)
+	// 	if err1 != nil || err2 != nil {
+	// 		return false
+	// 	}
+	// 	return os.SameFile(info1, info2)
 	case syntax.TsEql:
 		return atoi(x) == atoi(y)
 	case syntax.TsNeq:
